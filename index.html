@@ -7,7 +7,28 @@
     <title>FiveM qb-core Item Shop UI</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="app"></div>
+    <script>
+      (function(){
+        window.global = window;
+        function handleMessage(e){
+          try{
+            var data = e.data || {};
+            if(data.action === 'closeShop'){
+              var el = document.getElementById('app');
+              if(el){ el.style.display = 'none'; }
+              try{ (document.activeElement && document.activeElement.blur && document.activeElement.blur()); }catch(e){}
+              try{ document.body.style.pointerEvents = 'auto'; }catch(e){}
+            }
+            if(data.action === 'openShop'){
+              var el = document.getElementById('app');
+              if(el){ el.style.display = 'block'; }
+            }
+          }catch(err){ /* noop */ }
+        }
+        window.addEventListener('message', handleMessage);
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

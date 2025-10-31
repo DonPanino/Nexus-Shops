@@ -13,12 +13,12 @@ function PurchaseModal({ item, onClose }: PurchaseModalProps) {
   const maxQuantity = item.amount === -1 ? 999 : item.amount;
 
   const handlePurchase = () => {
-    fetch(`https://${GetParentResourceName()}/purchaseItem`, {
+    fetch(`https://${GetParentResourceName}/buyItem`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        item: item,
-        quantity: quantity
+        item: item.name,
+        amount: quantity
       })
     });
     onClose();
@@ -47,7 +47,7 @@ function PurchaseModal({ item, onClose }: PurchaseModalProps) {
   const totalPrice = item.price * quantity;
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+    <div className="fixed inset-0 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl w-full max-w-md border border-slate-700/50 overflow-hidden">
         {/* Header */}
         <div className="bg-gradient-to-r from-slate-800 to-slate-900 p-6 border-b border-slate-700/50">
@@ -57,7 +57,7 @@ function PurchaseModal({ item, onClose }: PurchaseModalProps) {
               onClick={onClose}
               className="p-2 hover:bg-slate-700/50 rounded-lg transition-colors"
             >
-              <X className="w-5 h-5 text-slate-400 hover:text-white" />
+              <X className="w-5 h-5 text-black hover:text-white" />
             </button>
           </div>
         </div>
@@ -85,12 +85,12 @@ function PurchaseModal({ item, onClose }: PurchaseModalProps) {
                 <h3 className="text-white font-semibold text-lg mb-1">{displayName}</h3>
                 <p className="text-emerald-400 font-bold">${item.price.toLocaleString()}</p>
                 {item.amount !== -1 && (
-                  <p className="text-slate-400 text-sm mt-1">Available: {item.amount}</p>
+                  <p className="text-black text-sm mt-1">Available: {item.amount}</p>
                 )}
               </div>
             </div>
             {item.description && (
-              <p className="text-slate-400 text-sm mt-4 pt-4 border-t border-slate-700/50">
+              <p className="text-black text-sm mt-4 pt-4 border-t border-slate-700/50">
                 {item.description}
               </p>
             )}
@@ -98,7 +98,7 @@ function PurchaseModal({ item, onClose }: PurchaseModalProps) {
 
           {/* Quantity Selector */}
           <div className="mb-6">
-            <label className="text-slate-400 text-sm mb-2 block">Quantity</label>
+            <label className="text-black text-sm mb-2 block">Quantity</label>
             <div className="flex items-center gap-3">
               <button
                 onClick={decrementQuantity}
@@ -129,7 +129,7 @@ function PurchaseModal({ item, onClose }: PurchaseModalProps) {
           {/* Total */}
           <div className="bg-slate-800/50 rounded-lg p-4 mb-6 border border-slate-700/50">
             <div className="flex items-center justify-between">
-              <span className="text-slate-400">Total Price:</span>
+              <span className="text-black">Total Price:</span>
               <span className="text-emerald-400 font-bold text-xl">
                 ${totalPrice.toLocaleString()}
               </span>

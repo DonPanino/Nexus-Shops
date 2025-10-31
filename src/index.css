@@ -2,18 +2,272 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  /* Shop Layout */
+  .shop-container {
+    @apply fixed inset-0 flex items-center justify-center p-4 font-sans;
+  }
+
+  .shop-content {
+    @apply bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden border border-slate-700/50;
+  }
+
+  /* Shop Header */
+  .shop-header {
+    @apply bg-gradient-to-r from-slate-800 to-slate-900 p-6 border-b border-slate-700/50;
+  }
+
+  .shop-header-content {
+    @apply flex items-center justify-between;
+  }
+
+  .shop-title-section {
+    @apply flex items-center gap-3;
+  }
+
+  .shop-icon-container {
+    @apply bg-emerald-500/20 p-3 rounded-lg;
+  }
+
+  .shop-icon {
+    @apply w-6 h-6 text-emerald-400;
+  }
+
+  .shop-title {
+    @apply text-2xl font-bold text-white;
+  }
+
+  .shop-subtitle {
+    @apply text-slate-400 text-sm;
+  }
+
+  /* Shop Controls */
+  .shop-controls {
+    @apply flex items-center gap-2;
+  }
+
+  .shop-control-button {
+    @apply p-2 hover:bg-slate-700/50 rounded-lg transition-colors;
+  }
+
+  .shop-cart-button {
+    @apply p-2 hover:bg-slate-700/50 rounded-lg transition-colors relative;
+  }
+
+  .cart-count-badge {
+    @apply absolute -top-1 -right-1 bg-emerald-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center;
+  }
+
+  /* Search Bar */
+  .search-container {
+    @apply mt-4 relative;
+  }
+
+  .search-icon {
+    @apply absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400;
+  }
+
+  .search-input {
+    @apply w-full bg-slate-800/50 border border-slate-700 rounded-lg pl-11 pr-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all;
+  }
+
+  /* Items Grid */
+  .items-container {
+    @apply p-6 overflow-y-auto max-h-[calc(90vh-200px)] custom-scrollbar;
+  }
+
+  .items-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+
+  .empty-items {
+    @apply text-center py-12;
+  }
+
+  .empty-icon {
+    @apply w-16 h-16 text-slate-600 mx-auto mb-4;
+  }
+
+  .empty-text {
+    @apply text-slate-400 text-lg;
+  }
+
+  /* Cart Modal */
+  .cart-modal {
+    @apply fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50;
+  }
+
+  .cart-content {
+    @apply bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl w-full max-w-2xl border border-slate-700/50 overflow-hidden;
+  }
+
+  .cart-header {
+    @apply bg-gradient-to-r from-slate-800 to-slate-900 p-6 border-b border-slate-700/50;
+  }
+
+  .cart-items {
+    @apply p-6 max-h-[60vh] overflow-y-auto;
+  }
+
+  .cart-item {
+    @apply bg-slate-800/50 rounded-lg p-4 flex items-center gap-4;
+  }
+
+  .cart-item-image {
+    @apply bg-slate-900/50 rounded-lg p-2 w-16 h-16 flex items-center justify-center flex-shrink-0;
+  }
+
+  .cart-item-details {
+    @apply flex-1;
+  }
+
+  .cart-item-title {
+    @apply text-white font-semibold;
+  }
+
+  .cart-item-price {
+    @apply text-emerald-400;
+  }
+
+  .cart-quantity-controls {
+    @apply flex items-center gap-2;
+  }
+
+  .quantity-button {
+    @apply p-1 hover:bg-slate-700/50 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .quantity-text {
+    @apply text-white w-8 text-center;
+  }
+
+  .remove-button {
+    @apply p-2 hover:bg-red-500/10 rounded transition-colors;
+  }
+
+  .remove-button:hover .remove-icon {
+    @apply text-red-500;
+  }
+
+  .remove-icon {
+    @apply w-5 h-5 text-red-400;
+  }
+
+  /* Payment Section */
+  .payment-section {
+    @apply p-6 bg-slate-900/50 border-t border-slate-700/50;
+  }
+
+  .payment-methods {
+    @apply flex gap-4 mb-6;
+  }
+
+  .payment-button {
+    @apply flex-1 flex items-center justify-center gap-2 p-4 rounded-lg border transition-all;
+  }
+
+  .payment-button-active {
+    @apply bg-emerald-500/20 border-emerald-500/50 text-white;
+  }
+
+  .payment-button-inactive {
+    @apply bg-slate-800/50 border-slate-700/50 text-slate-400 hover:bg-slate-700/50;
+  }
+
+  .total-section {
+    @apply flex items-center justify-between mb-4;
+  }
+
+  .total-label {
+    @apply text-slate-400;
+  }
+
+  .total-amount {
+    @apply text-2xl font-bold text-white;
+  }
+
+  .checkout-button {
+    @apply w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2;
+  }
+  /* Shop Item Card */
+  .shop-item {
+    @apply bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 hover:bg-slate-700/50 hover:border-emerald-500/50 transition-all duration-200 text-left relative;
+  }
+
+  .shop-item-quantity {
+    @apply absolute -top-2 -right-2 bg-emerald-500 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center font-medium shadow-lg;
+  }
+
+  .shop-item-container {
+    @apply flex flex-col h-full;
+  }
+
+  .shop-item-image-container {
+    @apply bg-slate-900/50 rounded-lg p-4 mb-3 flex items-center justify-center h-32 transition-colors;
+  }
+
+  .shop-item:hover .shop-item-image-container {
+    @apply bg-slate-900;
+  }
+
+  .shop-item-image {
+    @apply max-w-full max-h-full object-contain;
+  }
+
+  .shop-item-placeholder-icon {
+    @apply w-16 h-16 text-slate-600;
+  }
+
+  .shop-item-info {
+    @apply flex-1;
+  }
+
+  .shop-item-title {
+    @apply text-white font-semibold mb-1 line-clamp-2;
+  }
+
+  .shop-item-description {
+    @apply text-slate-400 text-sm mb-2 line-clamp-2;
+  }
+
+  .shop-item-footer {
+    @apply flex items-center justify-between mt-3 pt-3 border-t border-slate-700/50;
+  }
+
+  .shop-item-price-container {
+    @apply flex items-center gap-2;
+  }
+
+  .shop-item-price {
+    @apply text-emerald-400 font-bold text-lg;
+  }
+
+  .shop-item-stock {
+    @apply text-slate-400 text-sm;
+  }
+
+  .shop-item-stock-amount {
+    @apply text-white font-medium;
+  }
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(16, 185, 129, 0.5) transparent;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: rgb(15 23 42 / 0.5);
-  border-radius: 4px;
+  background: transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgb(71 85 105);
-  border-radius: 4px;
+  background-color: rgba(16, 185, 129, 0.5);
+  border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {

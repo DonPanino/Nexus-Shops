@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Shop Layout */
+  .shop-container {
+    @apply fixed inset-0 flex items-center justify-center p-4 font-sans backdrop-glass bg-[rgba(0,0,0,0.5)];
+  }
+
+  .shop-content {
+    @apply bg-gradient-to-br from-dark-0 via-violet-1 to-violet-3 rounded-3xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden border border-slate-950/50 drop-shadow-[rgb(0,0,0,0.8)_1px_1px_3px];
+  }
+
+  /* Shop Header */
+  .shop-header {
+    @apply bg-gradient-to-tr from-dark-0 via-violet-1 to-violet-3  p-6 border-b border-violet-9;
+  }
+
+  .shop-header-content {
+    @apply flex items-center justify-between;
+  }
+
+  .shop-title-section {
+    @apply flex items-center gap-3;
+  }
+
+  .shop-icon-container {
+    @apply bg-neutral-950/0 p-3 rounded-lg;
+  }
+
+  .shop-icon {
+    @apply w-6 h-6 text-neutral-950;
+  }
+
+  .shop-title {
+    @apply text-2xl font-bold text-black;
+  }
+
+  .shop-subtitle {
+    @apply text-neutral-950 text-sm;
+  }
+
+  /* Shop Controls */
+  .shop-controls {
+    @apply flex items-center gap-2;
+  }
+
+  .shop-control-button {
+    @apply p-2 hover:bg-slate-950/50 rounded-lg transition-colors;
+  }
+
+  .shop-cart-button {
+    @apply p-2 hover:bg-slate-700/50 rounded-lg transition-colors relative;
+  }
+
+  .cart-count-badge {
+    @apply absolute top-0 -right-0 bg-violet-3 text-black text-xs rounded-full w-4 h-4 flex items-center justify-center font-medium drop-shadow-[rgb(0,0,0,0.8)_0px_2px_3px];
+  }
+
+  /* Search Bar */
+  .search-container {
+    @apply mt-4 relative;
+  }
+
+  .search-icon {
+    @apply absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-black;
+  }
+
+  .search-input {
+    @apply w-full bg-slate-800/50 border border-slate-700 rounded-lg pl-11 pr-4 py-3 text-black placeholder-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-4 focus:border-violet-4 transition-all;
+  }
+
+  /* Items Grid */
+  .items-container {
+    @apply p-6 overflow-y-auto max-h-[calc(90vh-200px)] custom-scrollbar;
+  }
+
+  .items-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+
+  .empty-items {
+    @apply text-center py-12;
+  }
+
+  .empty-icon {
+    @apply w-16 h-16 text-slate-600 mx-auto mb-4;
+  }
+
+  .empty-text {
+    @apply text-black text-lg;
+  }
+
+  /* Cart Modal */
+  .cart-modal {
+    @apply fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50;
+  }
+
+  .cart-content {
+    @apply bg-gradient-to-br from-dark-0 via-violet-1 to-violet-3  rounded-2xl shadow-2xl w-full max-w-2xl border border-slate-700/50 overflow-hidden;
+  }
+
+  .cart-header {
+    @apply bg-gradient-to-tr from-dark-0 via-violet-1 to-violet-3  p-6 border-b border-violet-4;
+  }
+
+  .cart-items {
+    @apply p-6 max-h-[60vh] overflow-y-auto;
+  }
+
+  .cart-item {
+    @apply bg-gradient-to-bl from-violet-3 via-violet-1 to-dark-0 rounded-lg p-4 flex items-center gap-4 drop-shadow-[rgb(0,0,0,0.8)_0px_4px_6px];
+  }
+
+  .cart-item-image {
+    @apply bg-slate-900/50 rounded-lg p-2 w-16 h-16 flex items-center justify-center flex-shrink-0;
+  }
+
+  .cart-item-details {
+    @apply flex-1;
+  }
+
+  .cart-item-title {
+    @apply text-black font-semibold;
+  }
+
+  .cart-item-price {
+    @apply text-black;
+  }
+
+  .cart-quantity-controls {
+    @apply flex items-center gap-2;
+  }
+
+  .quantity-button {
+    @apply p-1 hover:bg-slate-700/50 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .quantity-text {
+    @apply text-black w-8 text-center;
+  }
+
+  .remove-button {
+    @apply p-2 hover:bg-red-500/10 rounded transition-colors;
+  }
+
+  .remove-button:hover .remove-icon {
+    @apply text-red-500;
+  }
+
+  .remove-icon {
+    @apply w-5 h-5 text-red-600;
+  }
+
+  /* Payment Section */
+  .payment-section {
+    @apply p-6 bg-gradient-to-br from-dark-0 via-violet-1 to-violet-3 border-t border-violet-4/50;
+  }
+
+  .payment-methods {
+    @apply flex gap-4 mb-6;
+  }
+
+  .payment-button {
+    @apply flex-1 flex items-center justify-center gap-2 p-4 rounded-lg border transition-all;
+  }
+
+  .payment-button-active {
+    @apply bg-violet-3 border-grape-1 text-black;
+  }
+
+  .payment-button-inactive {
+    @apply bg-slate-800/50 border-slate-700/50 text-black hover:bg-slate-700/50;
+  }
+
+  .total-section {
+    @apply flex items-center justify-between mb-4;
+  }
+
+  .total-label {
+    @apply text-black;
+  }
+
+  .total-amount {
+    @apply text-2xl font-bold text-black;
+  }
+
+  .checkout-button {
+    @apply w-full bg-violet-3 hover:bg-violet-2 text-black font-semibold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2;
+  }
+  /* Shop Item Card */
+  .shop-item {
+    @apply bg-gradient-to-br from-violet-3 via-violet-1 to-dark-0 border border-slate-700/50 rounded-xl p-4 drop-shadow-[rgb(0,0,0,0.8)_0px_4px_6px] hover:scale-[1.03] bg-slate-700/50 hover:border-violet-3/50 transition-all duration-200 text-left relative;
+  }
+
+  .shop-item-quantity {
+    @apply absolute -top-2 -right-2 bg-violet-3 text-black text-sm rounded-full w-6 h-6 flex items-center justify-center font-medium drop-shadow-[rgb(0,0,0,0.8)_0px_2px_3px];
+  }
+
+  .shop-item-container {
+    @apply flex flex-col h-full;
+  }
+
+  .shop-item-image-container {
+    @apply bg-slate-900/50 rounded-lg p-4 mb-3 flex items-center justify-center h-32 transition-colors;
+  }
+
+  .shop-item:hover .shop-item-image-container {
+    @apply bg-violet-4;
+  }
+
+  .shop-item-image {
+    @apply max-w-full max-h-full object-contain;
+  }
+
+  .shop-item-placeholder-icon {
+    @apply w-16 h-16 text-slate-600;
+  }
+
+  .shop-item-info {
+    @apply flex-1;
+  }
+
+  .shop-item-title {
+    @apply text-black font-semibold mb-1 line-clamp-2;
+  }
+
+  .shop-item-description {
+    @apply text-black text-sm mb-2 line-clamp-2;
+  }
+
+  .shop-item-footer {
+    @apply flex items-center justify-between mt-3 pt-3 border-t border-slate-700/50;
+  }
+
+  .shop-item-price-container {
+    @apply flex items-center gap-2;
+  }
+
+  .shop-item-price {
+    @apply text-black font-bold text-lg;
+  }
+
+  .shop-item-stock {
+    @apply text-black text-sm;
+  }
+
+  .shop-item-stock-amount {
+    @apply text-black font-medium;
+  }
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar {
+  scrollbar-color: rgba(16, 185, 129, 0.0) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 0px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0);
+}

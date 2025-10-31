@@ -16,14 +16,15 @@ shared_scripts {
     'config.lua'
 }
 
-client_script 'client/main.lua'
-server_script 'server/main.lua'
+client_script 'client/client.lua'
+server_script 'server/server.lua'
 
 ui_page 'dist/index.html'
+
 files {
     'dist/index.html',
     'json/shops-inventory.json',
-    'dist/**/*'
+    'dist/assets/*'
 }
 
 lua54 'yes'
